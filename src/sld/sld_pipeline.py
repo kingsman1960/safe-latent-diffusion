@@ -8,12 +8,17 @@ from transformers import CLIPFeatureExtractor, CLIPTextModel, CLIPTokenizer
 
 from diffusers.configuration_utils import FrozenDict
 from diffusers.models import AutoencoderKL, UNet2DConditionModel
-from diffusers.pipeline_utils import DiffusionPipeline
+#from diffusers.pipeline_utils import DiffusionPipeline
+try:
+    from diffusers.pipeline_utils import DiffusionPipeline
+except:
+    from diffusers.pipelines.pipeline_utils import DiffusionPipeline
 from diffusers.schedulers import (
     DDIMScheduler,
     LMSDiscreteScheduler,
     PNDMScheduler,
 )
+
 from diffusers.utils import deprecate, logging
 from . import SLDPipelineOutput
 from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
